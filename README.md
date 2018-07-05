@@ -26,7 +26,7 @@ Steve
 Description
 -----------
 
-To use _wu,_ you need to obtain an API key from Weather Underground [http://www.wunderground.com/weather/api/](http://www.wunderground.com/weather/api/).  You should then add that key and the name of your default weather station, and your preference for Fahrenheit or Celcius (new feature in 3.10!) to $HOME/.condrc.  E.g.:
+To use _wu,_ you need to obtain an API key from Weather Underground [http://www.wunderground.com/weather/api/](http://www.wunderground.com/weather/api/).  You should then add that key, the name of your default weather station, and your preference for Fahrenheit or Celcius (new feature in 3.10!) to $HOME/.condrc.  E.g.:
 
 	{
 	  "key": "YOUR_API_KEY",
@@ -109,7 +109,7 @@ You may find the following aliases useful:
 License(s)
 ---------
 
-Wu is written and maintained by [Stephen Ramsay](http://stephenramsay.us/) (sramsay{dot}unl{at}gmail{dot}com) and [Anthony Starks](http://mindchunk.blogspot.com/).
+Wu is written and maintained by [Stephen Ramsay](http://stephenramsay.us/) (sramsay{at}protonmail{dot}com) and [Anthony Starks](http://mindchunk.blogspot.com/).
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
@@ -122,4 +122,4 @@ Data courtesy of Weather Underground, Inc. (WUI) is subject to the [Weather Unde
 Thanks
 ------
 
-Wu was heavily inspired by Jeremy Stanley's [weather](http://fungi.yuggoth.org/weather/).  This is a lovely Python script that has more-or-less the same output format as wu.  I reimplemented the system because Stanley's had stopped working (for me) and I wanted a program that was faster.  I also wanted a system that takes advantage of Weather Underground's rich [JSON](http://www.json.org/) API.
+Wu was heavily inspired by Jeremy Stanley's [weather](http://fungi.yuggoth.org/weather/).  This is a lovely Python script that has more-or-less the same output format as _wu_.  I reimplemented the system because Stanley's had stopped working (for me) and I wanted a program that was faster.  I also wanted a system that takes advantage of Weather Underground's rich [JSON](http://www.json.org/) API.
