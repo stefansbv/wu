@@ -19,7 +19,7 @@ However, it will be a long time before I deprecate this version.  Nim has not re
 
 I realize that a lot of people use _wu_ -- some, for fairly mission-critical purposes.  I am writing this update primarily to assure users that this program is still being actively maintained, to acknowledge this hiccup with Go, and to indicate that there may be another (nearly identical) version of the program available before the year is out.
 
-If *you* have any insight into what is going on with cgo and crypto/x509 library, I'd love to hear from you.  Otherwise, please continue to enjoy _wu_, report any bugs you see, and may you experience lovely/interesting weather wherever you are.
+If *you* have any insight into what is going on with cgo and the crypto/x509 library, I'd love to hear from you.  Otherwise, please continue to enjoy _wu_, report any bugs you see, and experience lovely/interesting weather wherever you are.
 
 Steve
 
