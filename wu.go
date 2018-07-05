@@ -183,7 +183,7 @@ func BuildURL(infoType string, stationId string) string {
     URL = URLstem + conf.Key + "/" + infoType + "_" + date + query + stationId + format
   }
 
-  // fmt.Println(URL) //DEBUG
+  fmt.Println(URL) //DEBUG
 
   return URL
 }
