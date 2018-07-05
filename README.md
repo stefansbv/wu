@@ -11,15 +11,15 @@ Update (5 July 2018)
 
 Greetings _wu_ users!  I use _wu_ every single day, and I try to deal with issues that come up.  It hasn't been updated in a while, but mostly because it appears to be bug free and is feature complete.
 
-However, _wu_ stopped compiling from source on Mac High Sierra after Go version 1.10.0 (the issue appears to be related to the crypto/x509 module, and as far as I can tell, that's Go's fault, not mine).  The program continues to be available to Mac users through Homebrew, though not the latest version (I presume, because of this incompatibility).
+There is, however, a problem building _wu_ on MacOS using any version of the Go compiler after 1.9.  The problem appears to be ultimately related to MacOS itself, but from the standpoint of someone trying to compile from source, it has to do with cgo (the tool used to create Go programs that link to C libraries).  If you compile Go without cgo, the problem goes away.  However, Go compiled _with_ cgo is the default on most platforms.
 
 Some time in the next few months, I intend to create a new version of _wu_ using the [Nim programming language](http://nim-lang.org).  This new version will likely match _wu's_ current feature set exactly, though I may add a switch or two.  I am also considering changing the format of the configuration file (the JSON format trips up a lot of users, because a stray comma breaks the program).  
 
-However, it will be a long time before I deprecate this version.  Nim has not reached 1.0, and this version is working fine for the vast majority of users.  It's also likely that the problem with Go will eventually get resolved.  Right now, though, I am uncomfortable with maintaining a program that can't be compiled with the latest Go compiler on all platforms -- in part, because this means _wu_ isn't keeping pace with security updates to the Go compiler itself.
+However, it will be a long time before I deprecate this version.  Nim has not reached 1.0, and this version is working fine for the vast majority of users.  It's also likely that the problem with Go will eventually get resolved.  Right now, though, I am uncomfortable with maintaining a program that can't be compiled with the latest default version of the Go compiler on all platforms -- in part, because this means _wu_ isn't keeping pace with security updates to the Go compiler itself.
 
 I realize that a lot of people use _wu_ -- some, for fairly mission-critical purposes.  I am writing this update primarily to assure users that this program is still being actively maintained, to acknowledge this hiccup with Go, and to indicate that there may be another (nearly identical) version of the program available before the year is out.
 
-If *you* have managed to get _wu_ to compile from source on the Mac using the latest Go compiler, I'd love to hear from you.  Otherwise, please continue to enjoy _wu_, report any bugs you see, and experience lovely weather wherever you are.
+If *you* have any insight into what is going on with cgo and crypto/x509 library, I'd love to hear from you.  Otherwise, please continue to enjoy _wu_, report any bugs you see, and may you experience lovely/interesting weather wherever you are.
 
 Steve
 
