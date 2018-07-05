@@ -13,7 +13,7 @@ Greetings _wu_ users!  I use _wu_ every single day, and I try to deal with issue
 
 However, _wu_ stopped compiling from source on Mac High Sierra after Go version 3.10.0 (the issue appears to be related to the crypto/x509 module, and as far as I can tell, that's Go's fault, not mine).  The program continues to be available to Mac users through Homebrew.
 
-Some time in the next few months, I intend to create a new version of _wu_ using the Nim programming language.  This new version will likely match _wu's_ current feature set exactly, though I may add a switch or two.  I am also considering changing the format of the configuration file (the JSON format trips up a lot of users, because a stray comma breaks the program).  
+Some time in the next few months, I intend to create a new version of _wu_ using the [Nim programming language](http://nim-lang.org).  This new version will likely match _wu's_ current feature set exactly, though I may add a switch or two.  I am also considering changing the format of the configuration file (the JSON format trips up a lot of users, because a stray comma breaks the program).  
 
 However, it will be a long time before I deprecate this version.  Nim has not reached 1.0, and this version is working fine for the vast majority of users.  It's also likely that the problem with Go will eventually get resolved.  Right now, though, I am uncomfortable with maintaining a program that can't be compiled with the latest Go compiler on all platforms -- in part, because this means _wu_ isn't keeping pace with security updates to the Go compiler itself.
 
