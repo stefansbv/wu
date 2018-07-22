@@ -27,13 +27,16 @@
 package main
 
 import (
+	//"fmt"
 	"regexp"
 )
 
 func Convert(temp string) string {
-	celsiusPattern := regexp.MustCompile("([0-9]+ F) \\(([0-9]+ C)\\)")
+	tempPattern := regexp.MustCompile(`([+-]?\d+(?:\.\d+)? F)\s\(([+-]?\d+(?:\.\d+)? C)\)`)
 
-	pattern := celsiusPattern.FindStringSubmatch(temp)
+	//fmt.Printf("Temp=%s\n", temp)
+	
+	pattern := tempPattern.FindStringSubmatch(temp)
 	newTemp := pattern[2] + " " + "(" + pattern[1] + ")"
 
 	return newTemp
