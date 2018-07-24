@@ -4,7 +4,7 @@
 *
 * Main and associated functions.
 *
-* Written and maintained by Stephen Ramsay <sramsay.unl@gmail.com>
+* Written and maintained by Stephen Ramsay <sramsay@protonmail.com>
 * and Anthony Starks.
 *
 * Last Modified: Mon Aug 01 12:28:06 CDT 2016

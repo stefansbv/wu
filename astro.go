@@ -4,7 +4,7 @@
 * This file is part of wu.  It contains functions related to
 * the -astro switch (astronomical data).
 *
-* Written and maintained by Stephen Ramsay <sramsay.unl@gmail.com>
+* Written and maintained by Stephen Ramsay <sramsay@protonmail.com>
 * and Anthony Starks.
 *
 * Last Modified: Wed Dec 18 16:11:00 CST 2013

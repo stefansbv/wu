@@ -4,7 +4,7 @@
 * This file is part of wu.  It contains functions related to
 * the -alerts switch (active weather alerts).
 *
-* Written and maintained by Stephen Ramsay <sramsay.unl@gmail.com>
+* Written and maintained by Stephen Ramsay <sramsay@protonmail.com>
 * and Anthony Starks.
 *
 * Last Modified: Mon Aug 01 12:58:30 CDT 2016

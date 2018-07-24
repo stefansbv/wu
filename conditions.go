@@ -4,7 +4,7 @@
 * This file is part of wu.  It contains functions related to
 * the -conditions switch (current conditions).
 *
-* Written and maintained by Stephen Ramsay <sramsay.unl@gmail.com>
+* Written and maintained by Stephen Ramsay <sramsay@protonmail.com>
 * and Anthony Starks.
 *
 * Last Modified: Sat Aug 13 13:16:18 CDT 2016
