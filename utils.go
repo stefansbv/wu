@@ -35,7 +35,7 @@ func Convert(temp string) string {
 	tempPattern := regexp.MustCompile(`([+-]?\d+(?:\.\d+)? F)\s\(([+-]?\d+(?:\.\d+)? C)\)`)
 
 	//fmt.Printf("Temp=%s\n", temp)
-	
+
 	pattern := tempPattern.FindStringSubmatch(temp)
 	newTemp := pattern[2] + " " + "(" + pattern[1] + ")"
 
