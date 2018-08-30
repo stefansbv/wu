@@ -4,7 +4,7 @@
 * This file is part of wu.  It contains functions related to
 * the --planner switch (travel planner based on historical data).
 *
-* Written and maintained by Stephen Ramsay <sramsay.unl@gmail.com>
+* Written and maintained by Stephen Ramsay <sramsay@protonamil.com>
 * and Anthony Starks.
 *
 * Last Modified: Mon Aug 01 12:49:01 CDT 2016

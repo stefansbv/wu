@@ -4,7 +4,7 @@
 * This file is part of wu.  It contains functions related to
 * the -almanac switch (historical data).
 *
-* Written and maintained by Stephen Ramsay <sramsay.unl@gmail.com>
+* Written and maintained by Stephen Ramsay <sramsay@protonmail.com>
 * and Anthony Starks.
 *
 * Last Modified: Mon Aug 01 12:28:46 CDT 2016

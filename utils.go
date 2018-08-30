@@ -3,7 +3,7 @@
 *
 * This file is part of wu.  It contains utility functions.
 *
-* Written and maintained by Stephen Ramsay <sramsay.unl@gmail.com>
+* Written and maintained by Stephen Ramsay <sramsay@protonmail.com>
 * and Anthony Starks.
 *
 * Last Modified: Mon Aug 01 12:25:26 CDT 2016
@@ -35,7 +35,7 @@ func Convert(temp string) string {
 	tempPattern := regexp.MustCompile(`([+-]?\d+(?:\.\d+)? F)\s\(([+-]?\d+(?:\.\d+)? C)\)`)
 
 	//fmt.Printf("Temp=%s\n", temp)
-	
+
 	pattern := tempPattern.FindStringSubmatch(temp)
 	newTemp := pattern[2] + " " + "(" + pattern[1] + ")"
 
