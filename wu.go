@@ -37,6 +37,7 @@ import (
   "os"
   "regexp"
   "strings"
+	"time"
 )
 
 type Config struct {
@@ -183,14 +184,30 @@ func BuildURL(infoType string, stationId string) string {
     URL = URLstem + conf.Key + "/" + infoType + "_" + date + query + stationId + format
   }
 
-  // fmt.Println(URL) //DEBUG
+  // fmt.Println(URL) // DEBUG
 
   return URL
 }
 
+func Fetch(url string) ([]byte, error) {
+	wuClient:= http.Client{
+		Timeout: time.Second * 10, // Maximum of 2 secs
+	}
+
+	req, err := http.NewRequest(http.MethodGet, url, nil)
+
+	req.Header.Set("User-Agent", "wuClient")
+
+	res, err := wuClient.Do(req)
+
+	body, err := ioutil.ReadAll(res.Body)
+
+	return body, err
+}
+/*
 // Fetch does URL processing
 func Fetch(url string) ([]byte, error) {
-  res, err := http.Get(url)
+  //res, err := http.Get(url)
   CheckError(err)
   if res.StatusCode != 200 {
     fmt.Fprintf(os.Stderr, "Bad HTTP Status: %d\n", res.StatusCode)
@@ -200,6 +217,7 @@ func Fetch(url string) ([]byte, error) {
   res.Body.Close()
   return b, err
 }
+*/
 
 // CheckError exits on error with a message
 func CheckError(err error) {
