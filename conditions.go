@@ -57,6 +57,8 @@ type Current struct {
 	Dewpoint_f					 int
 	Dewpoint_c					 int
 	Heat_index_string    string
+	Heat_index_f				 string
+	Heat_index_c				 string
 	Windchill_string		 string
 	Windchill_f					 string
 	Windchill_c					 string
@@ -81,9 +83,15 @@ func PrintConditions(obs *Conditions, degrees string) {
 	} else {
 		fmt.Printf("   Temperature: %d° F (%d° C)\n", current.Temp_f, current.Temp_c)
 	}
+
 	if current.Heat_index_string != "NA" {
-		fmt.Println("   Heat Index: ", current.Heat_index_string)
+		if degrees == "C" {
+			fmt.Printf("   Heat Index: %s° C (%s° F)", current.Heat_index_c, current.Heat_index_f)
+		} else {
+			fmt.Printf("   Heat Index: %s° F (%s° C)", current.Heat_index_f, current.Heat_index_c)
+		}
 	}
+
 	fmt.Println("   Sky Conditions:", current.Weather)
 
 	var windstring = ""
