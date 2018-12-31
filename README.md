@@ -6,18 +6,16 @@ Version 3.10.3
 
 _wu_ is a small, fast command-line application that retrieves weather data from [Weather Underground](http://www.wunderground.com).
 
-Update (5 July 2018)
+Update (31 December 2018)
 --------------------
 
-Greetings _wu_ users!  I use _wu_ every single day, and I try to deal with issues that come up.  It hasn't been updated in a while, but mostly because it appears to be bug free and is feature complete.
+Greetings _wu_ users!  I use _wu_ every single day, and I try to deal with issues that come up.  It isn't updated very often, but mostly because it appears to be bug free and is feature complete.
 
-There is, however, a problem building _wu_ on MacOS using any version of the Go compiler after 1.9.  The problem appears to be ultimately related to MacOS itself, but from the standpoint of someone trying to compile from source, it has to do with cgo (the tool used to create Go programs that link to C libraries).  If you compile Go without cgo, the problem goes away.  However, Go compiled _with_ cgo is the default on most platforms.
+There have, however, been problems building _wu_ on MacOS using versions of the Go compiler after 1.9.  The problem appears to be ultimately related to MacOS itself, but from the standpoint of someone trying to compile from source, it has to do with cgo (the tool used to create Go programs that link to C libraries).  If you compile Go without cgo, the problem goes away.  However, Go compiled _with_ cgo is the default on most platforms.
 
-Some time in the next few months, I intend to create a new version of _wu_ using the [Nim programming language](http://nim-lang.org).  This new version will likely match _wu's_ current feature set exactly, though I may add a switch or two.  I am also considering changing the format of the configuration file (the JSON format trips up a lot of users, because a stray comma breaks the program).  
+I am in the process of rewriting this program in C++ -- in part for fun (I know), but mostly because I think package maintainers will have an easier time with the standard autoconf toolchain.  As I do this, I am discovering little bugs here and there and a few things that could be formatted better (particularly for users of the metric system).  I am therefore updating this version as I write the new version, and  I have no plans to deprecate the Go version in favor of the C++ version.
 
-However, it will be a long time before I deprecate this version.  Nim has not reached 1.0, and this version is working fine for the vast majority of users.  It's also likely that the problem with Go will eventually get resolved.  Right now, though, I am uncomfortable with maintaining a program that can't be compiled with the latest default version of the Go compiler on all platforms -- in part, because this means _wu_ isn't keeping pace with security updates to the Go compiler itself.
-
-I realize that a lot of people use _wu_ -- some, for fairly mission-critical purposes.  I am writing this update primarily to assure users that this program is still being actively maintained, to acknowledge this hiccup with Go, and to indicate that there may be another (nearly identical) version of the program available before the year is out.
+I realize that a lot of people use _wu_ -- some, for fairly mission-critical purposes.  I am writing this update primarily to assure users that this program is still being actively maintained, to acknowledge this hiccup with Go, and to indicate that there may be another (nearly identical) version of the program available soon.
 
 If *you* have any insight into what is going on with cgo and the crypto/x509 library, I'd love to hear from you.  Otherwise, please continue to enjoy _wu_, report any bugs you see, and experience lovely/interesting weather wherever you are.
 
