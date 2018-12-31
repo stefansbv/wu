@@ -7,9 +7,9 @@
 * Written and maintained by Stephen Ramsay <sramsay@protonmail.com>
 * and Anthony Starks.
 *
-* Last Modified: Thu Dec 27 18:07:43 CST 2018
+* Last Modified: Mon Dec 31 16:25:59 CST 2018
 *
-* Copyright © 2010-2016 by Stephen Ramsay and Anthony Starks.
+* Copyright © 2010-2019 by Stephen Ramsay and Anthony Starks.
 *
 * wu is free software; you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -79,7 +79,7 @@ const defaultStation = "KLNK"
 
 // GetVersion returns the version of the package
 func GetVersion() string {
-  return "3.10.4"
+  return "3.11.0"
 }
 
 // GetConf returns the API key and weather station from
@@ -142,7 +142,7 @@ func Options() string {
 
   if version {
     fmt.Println("Wu " + GetVersion())
-    fmt.Println("Copyright 2010-2018 by Stephen Ramsay and")
+    fmt.Println("Copyright © 2010-2019 by Stephen Ramsay and")
     fmt.Println("Anthony Starks. Data courtesy of Weather")
     fmt.Println("Underground, Inc. is subject to Weather")
     fmt.Println("Underground Data Feed Terms of Service.")
