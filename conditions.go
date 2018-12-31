@@ -51,7 +51,9 @@ type Current struct {
 	Pressure_mb          string
 	Pressure_in          string
 	Pressure_trend       string
-	Dewpoint_string      string
+	Dewpoint_string			 string
+	Dewpoint_f					 int
+	Dewpoint_c					 int
 	Heat_index_string    string
 	Windchill_string     string
 	Visibility_mi        string
@@ -68,7 +70,6 @@ func PrintConditions(obs *Conditions, degrees string) {
 	fmt.Printf("Current conditions at %s (%s)\n%s\n",
 		current.Observation_location.Full, current.Station_id, current.Observation_time)
 	if degrees == "C" {
-		//fmt.Println("   Temperature:", Convert(current.Temperature_string))
 		fmt.Printf("   Temperature: %d (%d)\n", current.Temp_c, current.Temp_f)
 	} else {
 		fmt.Printf("   Temperature: %d (%d)\n", current.Temp_f, current.Temp_c)
@@ -96,9 +97,9 @@ func PrintConditions(obs *Conditions, degrees string) {
 	fmt.Println("   Relative humidity:", current.Relative_humidity)
 
 	if degrees == "C" {
-		fmt.Print("   Dewpoint: ", Convert(current.Dewpoint_string))
+		fmt.Printf("   Dewpoint: ", current.Dewpoint_c);
 	} else {
-		fmt.Print("   Dewpoint: ", current.Dewpoint_string)
+		fmt.Printf("   Dewpoint: ", current.Dewpoint_f);
 	}
 
 	dp_components := strings.Split(current.Dewpoint_string, " ")
