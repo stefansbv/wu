@@ -7,7 +7,7 @@
 * Written and maintained by Stephen Ramsay <sramsay@protonmail.com>
 * and Anthony Starks.
 *
-* Last Modified: Mon Aug 01 12:28:06 CDT 2016
+* Last Modified: Thu Dec 27 18:07:43 CST 2018
 *
 * Copyright © 2010-2016 by Stephen Ramsay and Anthony Starks.
 *
@@ -79,7 +79,7 @@ const defaultStation = "KLNK"
 
 // GetVersion returns the version of the package
 func GetVersion() string {
-  return "3.10.3"
+  return "3.10.4"
 }
 
 // GetConf returns the API key and weather station from
@@ -90,7 +90,7 @@ func ReadConf() {
     jsonErr := json.Unmarshal(b, &conf)
     CheckError(jsonErr)
   } else {
-    fmt.Println("You must create a .condrc file in $HOME.")
+    fmt.Println("You must create a .condrc file in $HOME. See README for details.")
     os.Exit(0)
   }
 }
@@ -148,7 +148,7 @@ func Options() string {
     fmt.Println("Underground Data Feed Terms of Service.")
     fmt.Println("The program itself is free software, and")
     fmt.Println("you are welcome to redistribute it under")
-    fmt.Println("certain conditions.  See LICENSE for details.")
+    fmt.Println("certain conditions. See LICENSE for details.")
     os.Exit(0)
   }
 

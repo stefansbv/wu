@@ -44,7 +44,8 @@ type Current struct {
 	Observation_location Location
 	Station_id           string
 	Weather              string
-	Temperature_string   string
+	Temp_f							 int
+	Temp_c							 int
 	Relative_humidity    string
 	Wind_string          string
 	Pressure_mb          string
@@ -67,9 +68,10 @@ func PrintConditions(obs *Conditions, degrees string) {
 	fmt.Printf("Current conditions at %s (%s)\n%s\n",
 		current.Observation_location.Full, current.Station_id, current.Observation_time)
 	if degrees == "C" {
-		fmt.Println("   Temperature:", Convert(current.Temperature_string))
+		//fmt.Println("   Temperature:", Convert(current.Temperature_string))
+		fmt.Printf("   Temperature: %d (%d)\n", current.Temp_c, current.Temp_f)
 	} else {
-		fmt.Println("   Temperature:", current.Temperature_string)
+		fmt.Printf("   Temperature: %d (%d)\n", current.Temp_f, current.Temp_c)
 	}
 	if current.Heat_index_string != "NA" {
 		fmt.Println("   Heat Index: ", current.Heat_index_string)
