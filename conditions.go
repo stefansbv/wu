@@ -7,7 +7,7 @@
 * Written and maintained by Stephen Ramsay <sramsay@protonmail.com>
 * and Anthony Starks.
 *
-* Last Modified: Mon Dec 31 16:26:56 CST 2018
+* Last Modified: Wed Jan 02 07:26:15 CST 2019
 *
 * Copyright © 2010-2019 by Stephen Ramsay and Anthony Starks.
 *
@@ -80,16 +80,16 @@ func PrintConditions(obs *Conditions, degrees string) {
 	fmt.Printf("Current conditions at %s (%s)\n%s\n",
 		current.Observation_location.Full, current.Station_id, current.Observation_time)
 	if degrees == "C" {
-		fmt.Printf("   Temperature: %d° C (%d° F)\n", current.Temp_c, current.Temp_f)
+		fmt.Printf("   Temperature: %d\u00B0 C (%d\u00B0 F)\n", current.Temp_c, current.Temp_f)
 	} else {
-		fmt.Printf("   Temperature: %d° F (%d° C)\n", current.Temp_f, current.Temp_c)
+		fmt.Printf("   Temperature: %d\u00B0 F (%d\u00B0 C)\n", current.Temp_f, current.Temp_c)
 	}
 
 	if current.Heat_index_string != "NA" {
 		if degrees == "C" {
-			fmt.Printf("   Heat Index: %s° C (%s° F)", current.Heat_index_c, current.Heat_index_f)
+			fmt.Printf("   Heat Index: %s\u00B0 C (%s\u00B0 F)", current.Heat_index_c, current.Heat_index_f)
 		} else {
-			fmt.Printf("   Heat Index: %s° F (%s° C)", current.Heat_index_f, current.Heat_index_c)
+			fmt.Printf("   Heat Index: %s\u00B0 F (%s\u00B0 C)", current.Heat_index_f, current.Heat_index_c)
 		}
 	}
 
@@ -97,12 +97,12 @@ func PrintConditions(obs *Conditions, degrees string) {
 
 	var windstring = ""
 	if degrees == "C" {
-		windstring = fmt.Sprintf("   Wind: From the %s (%d°) at %d km/h", current.Wind_dir, current.Wind_degrees, current.Wind_kph)
+		windstring = fmt.Sprintf("   Wind: From the %s (%d\u00B0) at %d km/h", current.Wind_dir, current.Wind_degrees, current.Wind_kph)
 		if (current.Wind_gust_kph != 0) {
 			windstring = fmt.Sprintf("%s gusting to %d km/h", windstring, current.Wind_gust_kph)
 		}
 	} else {
-		windstring = fmt.Sprintf("   Wind: From the %s (%d°) at %d mph", current.Wind_dir, current.Wind_degrees, current.Wind_mph)
+		windstring = fmt.Sprintf("   Wind: From the %s (%d\u00B0) at %d mph", current.Wind_dir, current.Wind_degrees, current.Wind_mph)
 		if (current.Wind_gust_mph != 0) {
 			windstring = fmt.Sprintf("%s gusting to %d mph", windstring, current.Wind_gust_mph)
 		}
@@ -128,9 +128,9 @@ func PrintConditions(obs *Conditions, degrees string) {
 	fmt.Println("   Relative Humidity:", current.Relative_humidity)
 
 	if degrees == "C" {
-		fmt.Printf("   Dewpoint: %d° C (%d° F)", current.Dewpoint_c, current.Dewpoint_f);
+		fmt.Printf("   Dewpoint: %d\u00B0 C (%d\u00B0 F)", current.Dewpoint_c, current.Dewpoint_f);
 	} else {
-		fmt.Printf("   Dewpoint: %d° F (%d° C)", current.Dewpoint_f, current.Dewpoint_c);
+		fmt.Printf("   Dewpoint: %d\u00B0 F (%d\u00B0 C)", current.Dewpoint_f, current.Dewpoint_c);
 	}
 
 	switch dp := current.Dewpoint_f; {
@@ -154,9 +154,9 @@ func PrintConditions(obs *Conditions, degrees string) {
 
 	if current.Windchill_string != "NA" {
 		if degrees == "C" {
-			fmt.Printf("   Wind Chill: %s° C (%s° F)\n", current.Windchill_c, current.Windchill_f)
+			fmt.Printf("   Wind Chill: %s\u00B0 C (%s\u00B0 F)\n", current.Windchill_c, current.Windchill_f)
 		} else {
-			fmt.Printf("   Wind Chill: %s° F (%s° C)\n", current.Windchill_f, current.Windchill_c)
+			fmt.Printf("   Wind Chill: %s\u00B0 F (%s\u00B0 C)\n", current.Windchill_f, current.Windchill_c)
 		}
 	}
 
