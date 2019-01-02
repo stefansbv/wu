@@ -260,7 +260,7 @@ func PrintHistory(obs *HistoryConditions, stationId string, degrees string) {
   fmt.Printf("      Max Wind Speed: %s mph (%s kph)\n", history.Maxwspdi, history.Maxwspdm)
   fmt.Printf("      Min Wind Speed: %s mph (%s kph)\n", history.Minwspdi, history.Minwspdm)
   boxedPoint := boxCompass(history.Meanwdird)
-  fmt.Printf("      Mean Wind Direction: %s° (%s)\n", history.Meanwdird, boxedPoint)
+  fmt.Printf("      Mean Wind Direction: %s\u00B0 (%s)\n", history.Meanwdird, boxedPoint)
 
   // Visibility
 
