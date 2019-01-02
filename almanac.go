@@ -7,7 +7,7 @@
 * Written and maintained by Stephen Ramsay <sramsay@protonmail.com>
 * and Anthony Starks.
 *
-* Last Modified: Mon Aug 01 12:28:46 CDT 2016
+* Last Modified: Wed Jan 02 07:26:06 CST 2019
 *
 * Copyright © 2010-2019 by Stephen Ramsay and Anthony Starks.
 *
@@ -85,10 +85,10 @@ func PrintAlmanac(obs *AlmanacConditions, stationId string, degrees string) {
 		fmt.Printf("Record low : %s\u00B0 C (%s\u00B0 F) [%s]\n", recordLowC, recordLowF, recordLYear)
 
 	} else {
-		fmt.Printf("Normal high: %s\u00B0 C (%s\u00B0 F)\n", normalHighC, normalHighF)
-		fmt.Printf("Record high: %s\u00B0 C (%s\u00B0 F) [%s]\n", recordHighC, recordHighF, recordHYear)
-		fmt.Printf("Normal low : %s\u00B0 C (%s\u00B0 F)\n", normalLowC, normalLowF)
-		fmt.Printf("Record low : %s\u00B0 F (%s\u00B0 C) [%s]\n", recordLowC, recordLowF, recordLYear)
+		fmt.Printf("Normal high: %s\u00B0 F (%s\u00B0 C)\n", normalHighF, normalHighC)
+		fmt.Printf("Record high: %s\u00B0 F (%s\u00B0 C) [%s]\n", recordHighF, recordHighC, recordHYear)
+		fmt.Printf("Normal low : %s\u00B0 F (%s\u00B0 C)\n", normalLowF, normalLowC)
+		fmt.Printf("Record low : %s\u00B0 F (%s\u00B0 C) [%s]\n", recordLowF, recordLowC, recordLYear)
 	}
 
 }
