@@ -66,7 +66,8 @@ type Current struct {
 	Visibility_km        string
 	Feelslike_f					 string
 	Feelslike_c					 string
-	Precip_today_string  string
+	Precip_today_in      string
+	Precip_today_metric  string
 }
 
 type Location struct {
@@ -124,12 +125,12 @@ func PrintConditions(obs *Conditions, degrees string) {
 		fmt.Println(pstring, "holding steady")
 	}
 
-	fmt.Println("   Relative humidity:", current.Relative_humidity)
+	fmt.Println("   Relative Humidity:", current.Relative_humidity)
 
 	if degrees == "C" {
-		fmt.Printf("   Dewpoint: %d° C", current.Dewpoint_c);
+		fmt.Printf("   Dewpoint: %d° C (%d° F)", current.Dewpoint_c, current.Dewpoint_f);
 	} else {
-		fmt.Printf("   Dewpoint: %d° F", current.Dewpoint_f);
+		fmt.Printf("   Dewpoint: %d° F (%d° C)", current.Dewpoint_f, current.Dewpoint_c);
 	}
 
 	switch dp := current.Dewpoint_f; {
@@ -153,9 +154,9 @@ func PrintConditions(obs *Conditions, degrees string) {
 
 	if current.Windchill_string != "NA" {
 		if degrees == "C" {
-			fmt.Printf("   Windchill: %s° C (%s° F)\n", current.Windchill_c, current.Windchill_f)
+			fmt.Printf("   Wind Chill: %s° C (%s° F)\n", current.Windchill_c, current.Windchill_f)
 		} else {
-			fmt.Printf("   Windchill: %s° F (%s° C)\n", current.Windchill_f, current.Windchill_c)
+			fmt.Printf("   Wind Chill: %s° F (%s° C)\n", current.Windchill_f, current.Windchill_c)
 		}
 	}
 
@@ -165,7 +166,11 @@ func PrintConditions(obs *Conditions, degrees string) {
 		fmt.Printf("   Visibility: %s miles\n", current.Visibility_mi)
 	}
 
-	if m, _ := regexp.MatchString("0.0", current.Precip_today_string); !m {
-		fmt.Println("   Precipitation today: ", current.Precip_today_string)
+	if m, _ := regexp.MatchString("0.0", current.Precip_today_metric); !m {
+		if degrees == "C" {
+			fmt.Printf("   Precipitation Today: %s mm\n", current.Precip_today_metric )
+		} else {
+			fmt.Printf("   Precipitation Today: %s in\n", current.Precip_today_in )
+		}
 	}
 }
