@@ -79,7 +79,7 @@ const defaultStation = "KLNK"
 
 // GetVersion returns the version of the package
 func GetVersion() string {
-  return "3.11.1"
+  return "3.11.2"
 }
 
 // GetConf returns the API key and weather station from
