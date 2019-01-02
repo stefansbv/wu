@@ -7,7 +7,7 @@
 * Written and maintained by Stephen Ramsay <sramsay@protonmail.com>
 * and Anthony Starks.
 *
-* Last Modified: Mon Dec 31 16:25:59 CST 2018
+* Last Modified: Tue Jan 01 21:35:28 CST 2019
 *
 * Copyright © 2010-2019 by Stephen Ramsay and Anthony Starks.
 *
@@ -79,7 +79,7 @@ const defaultStation = "KLNK"
 
 // GetVersion returns the version of the package
 func GetVersion() string {
-  return "3.11.2"
+  return "3.11.3"
 }
 
 // GetConf returns the API key and weather station from
@@ -189,6 +189,7 @@ func BuildURL(infoType string, stationId string) string {
   return URL
 }
 
+// Fetch does URL processing
 func Fetch(url string) ([]byte, error) {
 	wuClient:= http.Client{
 		Timeout: time.Second * 10, // Maximum of 2 secs
@@ -204,20 +205,6 @@ func Fetch(url string) ([]byte, error) {
 
 	return body, err
 }
-/*
-// Fetch does URL processing
-func Fetch(url string) ([]byte, error) {
-  //res, err := http.Get(url)
-  CheckError(err)
-  if res.StatusCode != 200 {
-    fmt.Fprintf(os.Stderr, "Bad HTTP Status: %d\n", res.StatusCode)
-    return nil, err
-  }
-  b, err := ioutil.ReadAll(res.Body)
-  res.Body.Close()
-  return b, err
-}
-*/
 
 // CheckError exits on error with a message
 func CheckError(err error) {
