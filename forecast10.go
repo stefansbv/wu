@@ -7,7 +7,7 @@
 * Written and maintained by Stephen Ramsay <sramsay@protonmail.com>
 * and Anthony Starks.
 *
-* Last Modified: Wed Dec 18 16:11:30 CST 2013
+* Last Modified: Thu Jan 03 15:37:09 CST 2019
 *
 * Copyright © 2010-2019 by Stephen Ramsay and Anthony Starks.
 *
@@ -29,16 +29,16 @@
 package main
 
 import (
-  "fmt"
+	"fmt"
 )
 
 // printForecast prints the forecast for a given station to standard out
 // The dat structure on which it depends is in forecast.go.
-func PrintForecast10(obs *ForecastConditions, stationId string) {
-  t := obs.Forecast.Txt_forecast
-  fmt.Printf("Forecast for %s\n", stationId)
-  fmt.Printf("Issued at %s\n", t.Date)
-  for _, f := range t.Forecastday {
-    fmt.Printf("%s: %s\n", f.Title, f.Fcttext)
-  }
+func PrintForecast10(obs *ForecastConditions, stationId string, degrees string) {
+	t := obs.Forecast.Txt_forecast
+	fmt.Printf("Forecast for %s\n", stationId)
+	fmt.Printf("Issued at %s\n", t.Date)
+	for _, f := range t.Forecastday {
+		fmt.Printf("%s: %s\n", f.Title, f.Fcttext)
+	}
 }
