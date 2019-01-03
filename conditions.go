@@ -7,7 +7,7 @@
 * Written and maintained by Stephen Ramsay <sramsay@protonmail.com>
 * and Anthony Starks.
 *
-* Last Modified: Wed Jan 02 07:26:15 CST 2019
+* Last Modified: Thu Jan 03 15:39:53 CST 2019
 *
 * Copyright © 2010-2019 by Stephen Ramsay and Anthony Starks.
 *
@@ -42,30 +42,30 @@ type Current struct {
 	Observation_location Location
 	Station_id           string
 	Weather              string
-	Temp_f							 int
-	Temp_c							 int
+	Temp_f               int
+	Temp_c               int
 	Relative_humidity    string
-	Wind_dir						 string
-	Wind_degrees				 int
-	Wind_mph						 int
-	Wind_gust_mph				 int
-	Wind_kph						 int
-	Wind_gust_kph				 int
+	Wind_dir             string
+	Wind_degrees         int
+	Wind_mph             int
+	Wind_gust_mph        int
+	Wind_kph             int
+	Wind_gust_kph        int
 	Pressure_mb          string
 	Pressure_in          string
 	Pressure_trend       string
-	Dewpoint_f					 int
-	Dewpoint_c					 int
+	Dewpoint_f           int
+	Dewpoint_c           int
 	Heat_index_string    string
-	Heat_index_f				 string
-	Heat_index_c				 string
-	Windchill_string		 string
-	Windchill_f					 string
-	Windchill_c					 string
+	Heat_index_f         string
+	Heat_index_c         string
+	Windchill_string     string
+	Windchill_f          string
+	Windchill_c          string
 	Visibility_mi        string
 	Visibility_km        string
-	Feelslike_f					 string
-	Feelslike_c					 string
+	Feelslike_f          string
+	Feelslike_c          string
 	Precip_today_in      string
 	Precip_today_metric  string
 }
@@ -80,16 +80,16 @@ func PrintConditions(obs *Conditions, degrees string) {
 	fmt.Printf("Current conditions at %s (%s)\n%s\n",
 		current.Observation_location.Full, current.Station_id, current.Observation_time)
 	if degrees == "C" {
-		fmt.Printf("   Temperature: %d\u00B0 C (%d\u00B0 F)\n", current.Temp_c, current.Temp_f)
+		fmt.Printf("   Temperature: %d\u00B0C (%d\u00B0F)\n", current.Temp_c, current.Temp_f)
 	} else {
-		fmt.Printf("   Temperature: %d\u00B0 F (%d\u00B0 C)\n", current.Temp_f, current.Temp_c)
+		fmt.Printf("   Temperature: %d\u00B0F (%d\u00B0C)\n", current.Temp_f, current.Temp_c)
 	}
 
 	if current.Heat_index_string != "NA" {
 		if degrees == "C" {
-			fmt.Printf("   Heat Index: %s\u00B0 C (%s\u00B0 F)", current.Heat_index_c, current.Heat_index_f)
+			fmt.Printf("   Heat Index: %s\u00B0C (%s\u00B0F)", current.Heat_index_c, current.Heat_index_f)
 		} else {
-			fmt.Printf("   Heat Index: %s\u00B0 F (%s\u00B0 C)", current.Heat_index_f, current.Heat_index_c)
+			fmt.Printf("   Heat Index: %s\u00B0F (%s\u00B0C)", current.Heat_index_f, current.Heat_index_c)
 		}
 	}
 
@@ -98,12 +98,12 @@ func PrintConditions(obs *Conditions, degrees string) {
 	var windstring = ""
 	if degrees == "C" {
 		windstring = fmt.Sprintf("   Wind: From the %s (%d\u00B0) at %d km/h", current.Wind_dir, current.Wind_degrees, current.Wind_kph)
-		if (current.Wind_gust_kph != 0) {
+		if current.Wind_gust_kph != 0 {
 			windstring = fmt.Sprintf("%s gusting to %d km/h", windstring, current.Wind_gust_kph)
 		}
 	} else {
 		windstring = fmt.Sprintf("   Wind: From the %s (%d\u00B0) at %d mph", current.Wind_dir, current.Wind_degrees, current.Wind_mph)
-		if (current.Wind_gust_mph != 0) {
+		if current.Wind_gust_mph != 0 {
 			windstring = fmt.Sprintf("%s gusting to %d mph", windstring, current.Wind_gust_mph)
 		}
 	}
@@ -128,35 +128,35 @@ func PrintConditions(obs *Conditions, degrees string) {
 	fmt.Println("   Relative Humidity:", current.Relative_humidity)
 
 	if degrees == "C" {
-		fmt.Printf("   Dewpoint: %d\u00B0 C (%d\u00B0 F)", current.Dewpoint_c, current.Dewpoint_f);
+		fmt.Printf("   Dewpoint: %d\u00B0C (%d\u00B0F)", current.Dewpoint_c, current.Dewpoint_f)
 	} else {
-		fmt.Printf("   Dewpoint: %d\u00B0 F (%d\u00B0 C)", current.Dewpoint_f, current.Dewpoint_c);
+		fmt.Printf("   Dewpoint: %d\u00B0F (%d\u00B0C)", current.Dewpoint_f, current.Dewpoint_c)
 	}
 
 	switch dp := current.Dewpoint_f; {
 	case dp < 50:
-		fmt.Println(" (dry)")
+		fmt.Println(" [dry]")
 	case dp >= 50 && dp <= 54:
-		fmt.Println(" (very comfortable)")
+		fmt.Println(" [very comfortable]")
 	case dp >= 55 && dp <= 59:
-		fmt.Println(" (comfortable)")
+		fmt.Println(" [comfortable]")
 	case dp >= 60 && dp <= 64:
-		fmt.Println(" (okay for most)")
+		fmt.Println(" [okay for most]")
 	case dp >= 65 && dp <= 69:
-		fmt.Println(" (somewhat uncomfortable)")
+		fmt.Println(" [somewhat uncomfortable]")
 	case dp >= 70 && dp <= 74:
-		fmt.Println(" (very humid)")
+		fmt.Println(" [very humid]")
 	case dp >= 75 && dp <= 80:
-		fmt.Println(" (oppressive)")
+		fmt.Println(" [oppressive]")
 	case dp >= 80:
-		fmt.Println(" (dangerously high)")
+		fmt.Println(" [dangerously high]")
 	}
 
 	if current.Windchill_string != "NA" {
 		if degrees == "C" {
-			fmt.Printf("   Wind Chill: %s\u00B0 C (%s\u00B0 F)\n", current.Windchill_c, current.Windchill_f)
+			fmt.Printf("   Wind Chill: %s\u00B0C (%s\u00B0F)\n", current.Windchill_c, current.Windchill_f)
 		} else {
-			fmt.Printf("   Wind Chill: %s\u00B0 F (%s\u00B0 C)\n", current.Windchill_f, current.Windchill_c)
+			fmt.Printf("   Wind Chill: %s\u00B0F (%s\u00B0C)\n", current.Windchill_f, current.Windchill_c)
 		}
 	}
 
@@ -168,9 +168,9 @@ func PrintConditions(obs *Conditions, degrees string) {
 
 	if m, _ := regexp.MatchString("0.0", current.Precip_today_metric); !m {
 		if degrees == "C" {
-			fmt.Printf("   Precipitation Today: %s mm\n", current.Precip_today_metric )
+			fmt.Printf("   Precipitation Today: %s mm\n", current.Precip_today_metric)
 		} else {
-			fmt.Printf("   Precipitation Today: %s in\n", current.Precip_today_in )
+			fmt.Printf("   Precipitation Today: %s in\n", current.Precip_today_in)
 		}
 	}
 }
