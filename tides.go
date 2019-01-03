@@ -29,64 +29,64 @@
 package main
 
 import (
-  "fmt"
-  "os"
-  "strconv"
-  "time"
+	"fmt"
+	"os"
+	"strconv"
+	"time"
 )
 
 type TideConditions struct {
-  Tide Tide
+	Tide Tide
 }
 
 type Tide struct {
-  Tideinfo    []Tideinfo
-  Tidesummary []Tidesummary
+	Tideinfo    []Tideinfo
+	Tidesummary []Tidesummary
 }
 
 type Tideinfo struct {
-  Tidesite string
+	Tidesite string
 }
 
 type Tidesummary struct {
-  Date Date // Defined in wu.go
-  Data Data
+	Date Date // Defined in wu.go
+	Data Data
 }
 
 type Data struct {
-  Height string
-  Type   string
+	Height string
+	Type   string
 }
 
 // printTides prints the tidal data for given station to standard out
 func PrintTides(obs *TideConditions, stationID string) {
-  tide := obs.Tide
-  info := tide.Tideinfo
-  summary := tide.Tidesummary
+	tide := obs.Tide
+	info := tide.Tideinfo
+	summary := tide.Tidesummary
 
-  if len(summary) == 0 {
-    fmt.Println("No tidal data available.")
-    os.Exit(0)
-  }
+	if len(summary) == 0 {
+		fmt.Println("No tidal data available.")
+		os.Exit(0)
+	}
 
-  fmt.Printf("Tidal data for %s\n", info[0].Tidesite)
+	fmt.Printf("Tidal data for %s\n", info[0].Tidesite)
 
-  var date_string string
-  var prev_date string
+	var date_string string
+	var prev_date string
 
-  for _, s := range summary {
-    month, _ := strconv.Atoi(s.Date.Mon)
-    hour, _ := strconv.Atoi(s.Date.Hour)
-    prev_date = date_string
-    date_string = time.Month(month).String() + " " + s.Date.Mday + ", " + s.Date.Year + ":"
-    if date_string != prev_date {
-      fmt.Println(date_string)
-    }
-    if hour < 13 {
-      fmt.Printf("     %s at %d:%s AM\n", s.Data.Type, hour, s.Date.Min)
-    } else {
-      hour = hour - 12
-      fmt.Printf("     %s at %d:%s PM\n", s.Data.Type, hour, s.Date.Min)
-    }
-  }
+	for _, s := range summary {
+		month, _ := strconv.Atoi(s.Date.Mon)
+		hour, _ := strconv.Atoi(s.Date.Hour)
+		prev_date = date_string
+		date_string = time.Month(month).String() + " " + s.Date.Mday + ", " + s.Date.Year + ":"
+		if date_string != prev_date {
+			fmt.Println(date_string)
+		}
+		if hour < 13 {
+			fmt.Printf("     %s at %d:%s AM\n", s.Data.Type, hour, s.Date.Min)
+		} else {
+			hour = hour - 12
+			fmt.Printf("     %s at %d:%s PM\n", s.Data.Type, hour, s.Date.Min)
+		}
+	}
 }
