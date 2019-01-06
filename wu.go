@@ -7,7 +7,7 @@
 * Written and maintained by Stephen Ramsay <sramsay@protonmail.com>
 * and Anthony Starks.
 *
-* Last Modified: Thu Jan 03 15:37:14 CST 2019
+* Last Modified: Thu Jan 03 16:14:34 CST 2019
 *
 * Copyright © 2010-2019 by Stephen Ramsay and Anthony Starks.
 *
@@ -79,7 +79,7 @@ const defaultStation = "KLNK"
 
 // GetVersion returns the version of the package
 func GetVersion() string {
-	return "3.11.4"
+	return "3.11.5"
 }
 
 // GetConf returns the API key and weather station from
@@ -113,7 +113,7 @@ func Options() string {
 	flag.BoolVar(&doastro, "astro", false, "Reports sunrise, sunset, and lunar phase")
 	flag.BoolVar(&doforecast, "forecast", false, "Reports the current (3-day) forecast")
 	flag.BoolVar(&doforecast10, "forecast10", false, "Reports the current (7-day) forecast")
-	flag.BoolVar(&doalmanac, "almanac", false, "Reports average high, low and record temperatures")
+	flag.BoolVar(&doalmanac, "almanac", false, "Reports average high, low, and record temperatures")
 	flag.BoolVar(&doyesterday, "yesterday", false, "Reports yesterday's weather data")
 	flag.StringVar(&dohistory, "history", "", "Reports historical data for a particular day --history=\"YYYYMMDD\"")
 	flag.StringVar(&doplanner, "planner", "", "Reports historical data for a particular date range (30-day max) --planner=\"MMDDMMDD\"")
