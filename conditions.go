@@ -48,9 +48,9 @@ type Current struct {
 	Wind_dir             string
 	Wind_degrees         int
 	Wind_mph             int
-	Wind_gust_mph        int
+	Wind_gust_mph        string
 	Wind_kph             int
-	Wind_gust_kph        int
+	Wind_gust_kph        string
 	Pressure_mb          string
 	Pressure_in          string
 	Pressure_trend       string
@@ -98,13 +98,13 @@ func PrintConditions(obs *Conditions, degrees string) {
 	var windstring = ""
 	if degrees == "C" {
 		windstring = fmt.Sprintf("   Wind: From the %s (%d\u00B0) at %d km/h", current.Wind_dir, current.Wind_degrees, current.Wind_kph)
-		if current.Wind_gust_kph != 0 {
-			windstring = fmt.Sprintf("%s gusting to %d km/h", windstring, current.Wind_gust_kph)
+		if current.Wind_gust_kph != "0" {
+			windstring = fmt.Sprintf("%s gusting to %s km/h", windstring, current.Wind_gust_kph)
 		}
 	} else {
-		windstring = fmt.Sprintf("   Wind: From the %s (%d\u00B0) at %d mph", current.Wind_dir, current.Wind_degrees, current.Wind_mph)
-		if current.Wind_gust_mph != 0 {
-			windstring = fmt.Sprintf("%s gusting to %d mph", windstring, current.Wind_gust_mph)
+		windstring = fmt.Sprintf("   Wind: From the %s (%d\u00B0) at %s mph", current.Wind_dir, current.Wind_degrees, current.Wind_mph)
+		if current.Wind_gust_mph != "0" {
+			windstring = fmt.Sprintf("%s gusting to %s mph", windstring, current.Wind_gust_mph)
 		}
 	}
 
